@@ -3,9 +3,10 @@ import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
 
 
-export interface FetchResponse<T> {
-    results: T[];
-}
+// export interface FetchResponse<T> {
+//     [x: string]: any;
+//     results: T[];
+// }
 
 const useData = <T> (endpoint: string, requestConfig?: AxiosRequestConfig, dependencies?: any[]) => {
 

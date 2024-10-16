@@ -7,15 +7,25 @@ import {
   Button,
 } from "@chakra-ui/react";
 import home from "../assets/home.webp";
+import power from "../assets/power.webp";
+import cosmetic from "../assets/cusmetic.webp"
+import useProductQuery from "../store";
 
-interface Props {
-  selectedType: string;
-  onSelectType: (type: string) => void;
-}
+export const ProductCategories = () => {
+  const categories = [
+    {key:'home', value: home },
+    {key:'electric', value: power },
+    {key:'cosmetic', value: cosmetic },
+    {key:'Sanitery', value: cosmetic },
+    {key:'Healthcare', value: cosmetic },
+    {key:'Furnish', value: home },
+  ]
+  //["home", "electric", "cosmetic"];
 
-export const ProductCategories = ({ selectedType, onSelectType }: Props) => {
-  const categories = ["home", "electric", "cosmetic"];
-  if (!selectedType) selectedType = "default";
+  const selectedCategory = useProductQuery(
+    (s) => s.productQuery.productCategory
+  );
+  const setSelectedCategory = useProductQuery((s) => s.setProductCategory);
 
   return (
     <>
@@ -24,23 +34,23 @@ export const ProductCategories = ({ selectedType, onSelectType }: Props) => {
       </Heading>
       <List>
         {categories.map((category) => (
-          <ListItem key={category} paddingY="5px">
+          <ListItem key={category.key} paddingY="5px">
             <HStack>
               <Image
                 boxSize="32px"
                 objectFit="cover"
                 borderRadius={8}
-                src={home}
+                src={category.value}
               ></Image>
               <Button
                 whiteSpace={"normal"}
                 textAlign="left"
-                fontWeight={category === selectedType ? "bold" : "normal"}
+                fontWeight={category.key === selectedCategory ? "bold" : "normal"}
                 fontSize="lg"
                 variant="link"
-                onClick={() => onSelectType(category)}
+                onClick={() => setSelectedCategory(category.key)}
               >
-                {category}
+                {category.key}
               </Button>
             </HStack>
           </ListItem>
