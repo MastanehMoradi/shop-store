@@ -8,20 +8,17 @@ const apiClient = new APIClient<Product>("/products");
 
 const useProducts = () => {
   const productQuery = useProductQuery((s) => s.productQuery);
- 
-  
-
 
   return useInfiniteQuery<FetchResponse<Product>, Error>({
     queryKey: ["products", productQuery],
     queryFn: ({ pageParam = 1 }) =>
       apiClient.getAll({
-        // params: {
-        //   search: productQuery?.searchText,
-        //   category: productQuery?.productCategory,
-        //   sort: productQuery?.sortOrder,
-        //   page: pageParam,
-        // },
+        params: {
+          search: productQuery?.searchText,
+          category: productQuery?.productCategory,
+          sort: productQuery?.sortOrder,
+          page: pageParam,
+        },
       }),
     getNextPageParam: (lastPage, allPages) => {
       return lastPage.next ? allPages.length + 1 : undefined;

@@ -10,9 +10,10 @@ export const ProductTrailer = ({productId}: Props) => {
     if (isLoading) return null;
     if (error) throw error;
 
-    const first = data?.results[0];
+    const first = data;
 
   return (
-    <video src={first?.data[480]} poster={first?.preview} controls></video>
+    <video src={first?.data} poster={first?.preview} controls></video>
+    // [480]
   )
 }

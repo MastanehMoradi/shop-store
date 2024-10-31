@@ -9,4 +9,5 @@ export interface Product {
     backgroundImage: string;
     score: number;
     count: number;
+    price: number
 }

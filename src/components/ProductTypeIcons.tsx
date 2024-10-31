@@ -11,7 +11,6 @@ interface Props {
 
 export const ProductTypeIcons = ({type}: Props) => {
 
-  console.log(type);
     const iconMap : {[key: string]: IconType} = {
         home: FaHome,
         electric: MdElectricalServices,

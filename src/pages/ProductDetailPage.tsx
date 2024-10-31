@@ -9,8 +9,8 @@ import useProduct from '../hooks/useProduct';
 
 export const ProductDetailPage = () => {
 
-    const {productId} =  useParams();
-    const {data: product, error, isLoading} = useProduct(productId!);
+    const {id} =  useParams();
+    const {data: product, error, isLoading} = useProduct(id!);
 
     if(isLoading) return <Spinner/>;
     if(error || !product) return;

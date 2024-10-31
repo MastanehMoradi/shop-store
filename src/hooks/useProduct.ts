@@ -9,4 +9,14 @@ const useProduct = (productId: string) => useQuery({
     queryFn: () => apiClient.get(productId),
   });
 
+
+// const apiClient = new APIClient<string>("/products");
+// const useProduct = () =>
+// {
+  
+//   return useQuery({
+//   queryKey: ["products"],
+//   queryFn: () => apiClient.getOne(),
+// });
+// }
 export default useProduct;

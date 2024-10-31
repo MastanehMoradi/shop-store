@@ -5,11 +5,11 @@ import APIClient from "../services/api-client"
 
 const useScreenshots = (productId: number) => {
 
-    const apiClient = new APIClient<Screenshot>(`/products/${productId}/screenshots`);
+    const apiClient = new APIClient<Screenshot[]>(`/products/${productId}/screenshots`);
 
     return useQuery({
         queryKey: ['screenshots', productId],
-        queryFn: apiClient.getAll,
+        queryFn:()=> apiClient.getOne(),
     })
 }
 

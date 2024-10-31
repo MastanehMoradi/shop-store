@@ -9,7 +9,7 @@ const useTrailers = (productId: number) =>{
 
     return useQuery({
         queryKey: ['trailers', productId],
-        queryFn: apiClient.getAll,
+        queryFn:()=> apiClient.getOne(),
     })
 }
 
