@@ -9,6 +9,8 @@ import {
 import home from "../assets/home.webp";
 import power from "../assets/power.webp";
 import cosmetic from "../assets/cusmetic.webp"
+import sanitory from "../assets/sanitary.webp"
+import healthCare from "../assets/healthCare.webp"
 import useProductQuery from "../store";
 
 export const ProductCategories = () => {
@@ -16,8 +18,8 @@ export const ProductCategories = () => {
     {key:'home', value: home },
     {key:'electric', value: power },
     {key:'cosmetic', value: cosmetic },
-    {key:'Sanitery', value: cosmetic },
-    {key:'Healthcare', value: cosmetic },
+    {key:'Sanitery', value: sanitory },
+    {key:'Healthcare', value: healthCare },
     {key:'Furnish', value: home },
   ]
   //["home", "electric", "cosmetic"];
